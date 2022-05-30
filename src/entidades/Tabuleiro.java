@@ -24,15 +24,35 @@ public class Tabuleiro {
 		defineContadores();
 	}
 	
+	public void iniciaCampo(){
+		for(int i = 0; i < linha; i++) {
+			for(int j = 0; j < coluna; j++) {
+				campo[i][j] = new Casa();
+			}
+		}
+	}
+	
 	public void defineBombas(){ // Funcao para definir as casas que terao bombas e embaralha-las.
-				
+		for(int i = 0; i < qntBomba; i ++) {
+			double rand1 = Math.random();
+			double rand2 = Math.random();
+			
+			double lin = rand1 * 7;
+			double coluna = rand2 * 7;
+			
+			if(campo[(int) lin][(int) coluna].getTipoCasa() == 1) {
+				i--;
+			}else {
+				campo[(int) lin][(int) coluna] = new Bomba();
+			}
+		}
 	}
 
     public void incrementaBombasAoLado(int ini, int fim){ // Funcao para Incrementar os contadores das casas ao lado ao encontrar uma bomba.
 		for(int i = ini-1; i <= ini+1; i++){ 
 			for(int j = fim-1; j <= fim+1; j++){
 				if(i != -1 && j != -1 && i != 18 && j != 14){
-						campo[i][j].bombasAoLado++;	  
+						campo[i][j].incrementaBomba();	  
 				}
 			}	
 		}

@@ -1,21 +1,21 @@
 package entidades;
 
-public abstract class Casa {
-	int bombasAoLado;
-    private int tipoCasa; 
-
-	public Casa(){
-		bombasAoLado = 0;
-		tipoCasa = 0;	
-	}	
+public class Casa {
+    final private int tipoCasa = -1;
+    private int bombasAoLado;
 	
+	public Casa() {
+		super();
+		this.bombasAoLado = 0;
+	}
+
 	//Getters e Setters:
 	public int getTipoCasa() {
 		return tipoCasa;
 	}
-
-	public void setTipoCasa(int tipoCasa){
-		this.tipoCasa = tipoCasa;
-	}	
+	
+	public void incrementaBomba() {
+		bombasAoLado++;
+	}
 
 }
