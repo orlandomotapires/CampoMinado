@@ -1,0 +1,9 @@
+Aqui estarão dispostas as iformações das classes e dos métodos utilizados.
+
+CLASSE Casa.java: Representa o quadrado unitário que pode ser ocupado por uma bomba ou estar vazio.
+    -BombasAoLado : Inteiro que será incrementada toda vez que uma bomba se encontrar próximo a casa atual;
+    -incrementaBomba() : Realiza o processo de varredura para mapear quantas bombas se encontram ao redor daquela casa.
+    
+CLASSE Tabuleiro.java: Contém todos os métodos necessários para gerar o campo.
+    -Tabuleiro() : Inicializa uma matriz de da classe Casa.java.
+    -

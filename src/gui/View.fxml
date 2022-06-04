@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ButtonBar layoutX="50.0" layoutY="68.0" prefHeight="40.0" prefWidth="200.0" />
+      <AnchorPane layoutX="-50.0" layoutY="108.0" prefHeight="586.0" prefWidth="1051.0" />
+   </children>
+</Pane>
