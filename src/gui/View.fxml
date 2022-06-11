@@ -3,11 +3,15 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.layout.StackPane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ButtonBar layoutX="50.0" layoutY="68.0" prefHeight="40.0" prefWidth="200.0" />
-      <AnchorPane layoutX="-50.0" layoutY="108.0" prefHeight="586.0" prefWidth="1051.0" />
+      <AnchorPane layoutX="-135.0" layoutY="-71.0" prefHeight="586.0" prefWidth="1051.0">
+         <children>
+            <StackPane layoutX="299.0" layoutY="42.0" prefHeight="310.0" prefWidth="362.0" />
+         </children></AnchorPane>
+      <StackPane prefHeight="150.0" prefWidth="200.0" />
    </children>
 </Pane>

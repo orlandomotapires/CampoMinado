@@ -1,28 +1,72 @@
 package application;
 	
-import entidades.Tabuleiro;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import entidades.Tabuleiro;
+
 public class Main extends Application {
 	
-	private Parent creatContent() {
+	Tabuleiro tabuleiro = new Tabuleiro();
+	
+	private static final int tamCasa = 40;
+	private static final int comprimento = (tamCasa * Tabuleiro.COLUNA);
+	private static final int altura = (tamCasa * Tabuleiro.LINHA);
+	
+	private Scene scene;
+	
+	private Parent createContent() {
 		Pane root = new Pane();
-		root.setPrefSize(Tabuleiro.LINHA, Tabuleiro.COLUNA);
+		
+		root.setPrefSize(comprimento, altura);
+		
+		tabuleiro.iniciaCampo();
+		tabuleiro.definePosicaoDasBombas();
+		tabuleiro.defineNumerosDeBombasAoLado();
+		
+		poeCasasNoPane(root, tabuleiro);
+		poeNumerosNoPane(tabuleiro);
+		poeNadaNosZeros(tabuleiro);		
 		
 		return root;
 	}
 	
+	private void poeCasasNoPane(Pane root, Tabuleiro tabuleiro) {
+		for(int i = 0; i < Tabuleiro.LINHA; i++) {
+			for(int j = 0; j < Tabuleiro.COLUNA; j++) {
+				root.getChildren().add(tabuleiro.campo[i][j]);
+			}
+		}
+	}
+	
+	private void poeNumerosNoPane(Tabuleiro tabuleiro)	{
+		for(int i = 0; i < Tabuleiro.LINHA; i++) {
+			for(int j = 0; j < Tabuleiro.COLUNA; j++) {
+				if(tabuleiro.campo[i][j].getTipoCasa() == 0) {
+					tabuleiro.campo[i][j].text.setText(
+							String.valueOf(tabuleiro.campo[i][j].getBombasAoLado()));
+				}
+			}	
+		}
+	}
+
+	private void poeNadaNosZeros(Tabuleiro tabuleiro) {
+		for (int i = 0; i < Tabuleiro.LINHA; i++) {
+			for (int j = 0; j < Tabuleiro.COLUNA; j++) {
+				if (tabuleiro.campo[i][j].getBombasAoLado() == 0) {
+					tabuleiro.campo[i][j].text.setText("");
+				}
+			}
+		}
+	}
+
 	@Override
 	public void start(Stage stage) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/gui/View.fxml"));	
-			Scene scene = new Scene(parent);
+			scene = new Scene(createContent());
 			stage.setScene(scene);
 			stage.show();
 		} catch(Exception e){
@@ -30,16 +74,9 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
-		Tabuleiro tabuleiro = new Tabuleiro();
-		tabuleiro.iniciaCampo();
-		tabuleiro.definePosicaoDasBombas();
-		tabuleiro.defineNumerosDeBombasAoLado();
-		
-		Button campoGrafico[][] = new Button[Tabuleiro.LINHA][Tabuleiro.COLUNA];
-		
-		launch(args);
-		
+	
+	public static void main(String[] args) {					
+		launch(args);	
 	}	
 
 
