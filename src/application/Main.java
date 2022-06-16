@@ -216,7 +216,7 @@ public class Main extends Application {
 	public class Tabuleiro {
 		public final static int LINHA = 15;
 		public final static int COLUNA = 15;
-		private final static int QNTBOMBA = 21;
+		private final static int QNTBOMBA = 30;
 		public Casa[][] campo;
 
 		public Tabuleiro() {
